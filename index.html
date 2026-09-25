@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>小和 · 个人作品集</title>
+  <meta name="description" content="小和的个人作品集 — 软件工程专业，AI 辅助开发与大语言模型应用方向，展示项目作品、技能与联系方式。" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===================== 左侧固定边栏 ===================== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__inner">
+
+      <!-- 个人介绍 -->
+      <header class="profile">
+        <div class="profile__avatar" aria-label="个人标识">
+          <span class="profile__monogram">和</span>
+        </div>
+        <h1 class="profile__name">小和</h1>
+        <p class="profile__role">软件工程 · AI 应用方向</p>
+        <p class="profile__bio">
+          软件工程专业在读，目前主要关注 AI 辅助开发与大语言模型技术，
+          持续学习前后端开发、数据可视化与 AI 应用构建。
+        </p>
+      </header>
+
+      <!-- 技能方向 -->
+      <section class="skills" aria-label="技能方向">
+        <h2 class="sidebar__heading">技能方向</h2>
+        <ul class="skills__list">
+          <li><span class="skills__dot skills__dot--a"></span>Python</li>
+          <li><span class="skills__dot skills__dot--b"></span>Java</li>
+          <li><span class="skills__dot skills__dot--c"></span>TypeScript</li>
+          <li><span class="skills__dot skills__dot--d"></span>HTML / CSS</li>
+        </ul>
+      </section>
+
+      <!-- 导航 -->
+      <nav class="nav" aria-label="页面导航">
+        <h2 class="sidebar__heading">导航</h2>
+        <ul class="nav__list">
+          <li><a href="#projects" class="nav__link" data-nav="projects"><span class="nav__index">01</span>项目作品</a></li>
+          <li><a href="#about" class="nav__link" data-nav="about"><span class="nav__index">02</span>关于我</a></li>
+          <li><a href="#contact" class="nav__link" data-nav="contact"><span class="nav__index">03</span>联系方式</a></li>
+        </ul>
+      </nav>
+
+      <footer class="sidebar__footer">
+        <p>© 2026 小和 · 欢迎交流</p>
+      </footer>
+    </div>
+  </aside>
+
+  <!-- 移动端顶栏 -->
+  <header class="mobile-bar">
+    <span class="mobile-bar__name">小和</span>
+    <button class="mobile-bar__toggle" id="navToggle" aria-label="打开导航" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- 移动端抽屉导航 -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#projects" class="mobile-nav__link">项目作品</a>
+    <a href="#about" class="mobile-nav__link">关于我</a>
+    <a href="#contact" class="mobile-nav__link">联系方式</a>
+  </div>
+
+  <!-- ===================== 右侧主内容 ===================== -->
+  <main class="main">
+
+    <!-- 项目作品 -->
+    <section class="section" id="projects">
+      <div class="section__head">
+        <span class="section__label">01 — Works</span>
+        <h2 class="section__title">项目作品</h2>
+        <p class="section__desc">课程项目与个人实践的精选记录，持续更新中。</p>
+      </div>
+      <!-- 项目由 JS 根据数据动态渲染，便于后续扩展 -->
+      <div class="project-list" id="projectList"></div>
+    </section>
+
+    <!-- 关于我 -->
+    <section class="section section--alt" id="about">
+      <div class="section__head">
+        <span class="section__label">02 — About</span>
+        <h2 class="section__title">关于我</h2>
+      </div>
+      <div class="about">
+        <div class="about__text">
+          <p>
+            我叫小和，是一名软件工程专业学生，目前主要关注 AI 辅助开发与
+            大语言模型技术。
+          </p>
+          <p>
+            平时主要使用 Python、Java 和 TypeScript 进行项目开发，
+            也在持续学习前后端开发、数据可视化和 AI 应用构建。
+          </p>
+        </div>
+        <ul class="about__info">
+          <li><span class="about__info-key">专业</span><span class="about__info-val">软件工程</span></li>
+          <li><span class="about__info-key">当前方向</span><span class="about__info-val">AI 辅助开发、大语言模型应用</span></li>
+          <li><span class="about__info-key">所在城市</span><span class="about__info-val">中国 · 广州</span></li>
+          <li><span class="about__info-key">状态</span><span class="about__info-val">广州软件学院 · 在读</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section class="section" id="contact">
+      <div class="section__head">
+        <span class="section__label">03 — Contact</span>
+        <h2 class="section__title">联系方式</h2>
+        <p class="section__desc">欢迎老师、同学与企业招聘人员与我联系。</p>
+      </div>
+      <ul class="contact">
+        <li class="contact__item">
+          <span class="contact__key">邮箱</span>
+          <a class="contact__value" href="mailto:xiaohe@example.com">xiaohe@example.com</a>
+        </li>
+        <li class="contact__item">
+          <span class="contact__key">GitHub</span>
+          <a class="contact__value" href="https://github.com/xiaohe-dev" target="_blank" rel="noopener">github.com/xiaohe-dev</a>
+        </li>
+        <li class="contact__item">
+          <span class="contact__key">个人主页</span>
+          <a class="contact__value" href="https://xiaohe.dev" target="_blank" rel="noopener">xiaohe.dev</a>
+        </li>
+        <li class="contact__item">
+          <span class="contact__key">微信</span>
+          <span class="contact__value">xiaohezi</span>
+        </li>
+        <li class="contact__item">
+          <span class="contact__key">所在地</span>
+          <span class="contact__value">中国 · 广州</span>
+        </li>
+      </ul>
+    </section>
+
+    <footer class="main__footer">
+      <p>Designed &amp; built by 小和 · 使用原生 HTML / CSS / JavaScript</p>
+    </footer>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
