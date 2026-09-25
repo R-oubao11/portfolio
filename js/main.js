@@ -107,6 +107,70 @@ function setupMobileNav() {
   });
 }
 
+/* =========================================================
+   主题切换（深色 / 浅色）
+========================================================= */
+const THEME_KEY = "theme";
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  document.querySelectorAll(".theme-toggle").forEach((btn) => {
+    const dark = theme === "dark";
+    btn.setAttribute("aria-pressed", String(dark));
+    btn.setAttribute("aria-label", dark ? "切换到浅色主题" : "切换到深色主题");
+  });
+}
+
+function initTheme() {
+  const saved = localStorage.getItem(THEME_KEY);
+  const theme = saved === "dark" || saved === "light" ? saved : "light";
+  applyTheme(theme);
+
+  document.querySelectorAll(".theme-toggle").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      localStorage.setItem(THEME_KEY, next);
+      applyTheme(next);
+    });
+  });
+}
+
+/* =========================================================
+   滚动渐显动画
+========================================================= */
+function setupReveal() {
+  const targets = document.querySelectorAll(
+    ".section__head, .project, .about__text, .about__info, .contact__item, .profile, .skills, .sidebar__footer, .main__footer"
+  );
+
+  if (!("IntersectionObserver" in window)) return;
+
+  targets.forEach((el) => {
+    el.classList.add("reveal");
+    // 列表项（项目/联系方式）依次轻微错开，营造节奏感
+    if (el.matches(".project, .contact__item")) {
+      const index = Array.from(el.parentElement.children).indexOf(el);
+      el.style.transitionDelay = `${Math.min(index, 4) * 70}ms`;
+    }
+  });
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+  );
+
+  targets.forEach((el) => io.observe(el));
+}
+
 renderProjects();
 setupScrollSpy();
 setupMobileNav();
+setupReveal();
+initTheme();
